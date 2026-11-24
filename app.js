@@ -18,5 +18,7 @@ function chat() {
 
     fetch("https://api.groq.com/openai/v1/responses", requestOptions)
         .then((response) => response.json())
-        .then((result) => console.log(result.output[1].content[0].text));
+        .then((result) => {
+            document.getElementById("answerlbl").innerHTML=result.output[1].content[0].text;
+        });
 }
