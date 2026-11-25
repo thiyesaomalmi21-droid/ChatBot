@@ -28,6 +28,12 @@ function chat() {
     fetch("https://api.groq.com/openai/v1/responses", requestOptions)
         .then((response) => response.json())
         .then((result) => {
-            document.getElementById("answerlbl").innerHTML=result.output[1].content[0].text;
+            let aiText=result.output[1].content[0].text;
+            let aiTextBox=document.createElement("div")
+            aiTextBox.classList.add("ai-bubble")
+            aiTextBox.textContent=aiText;
+            chatContainer.appendChild(aiTextBox)
+
+            
         });
 }
