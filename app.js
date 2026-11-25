@@ -1,3 +1,11 @@
+const inputField = document.getElementById("txtfield");
+
+inputField.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    chat();
+  }
+})
+
 function chat() {
 
     let usertext=document.getElementById("txtfield").value
@@ -34,4 +42,6 @@ function chat() {
             aiTextBox.innerHTML=marked.parse(aiText);
             chatContainer.prepend(aiTextBox)
         });
+
+        document.getElementById("txtfield").value="";
 }
