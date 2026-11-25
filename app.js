@@ -6,7 +6,7 @@ function chat() {
     userBox.textContent=usertext
 
     let chatContainer=document.getElementById("chat-history")
-    chatContainer.appendChild(userBox)
+    chatContainer.prepend(userBox)
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -20,7 +20,7 @@ function chat() {
 
     const requestOptions = {
         method: "POST",
-        headers: myHeaders,
+        headers: myHeaders,  
         body: raw,
         redirect: "follow"
     };
@@ -32,8 +32,6 @@ function chat() {
             let aiTextBox=document.createElement("div")
             aiTextBox.classList.add("ai-bubble")
             aiTextBox.innerHTML=marked.parse(aiText);
-            chatContainer.appendChild(aiTextBox)
-
-            
+            chatContainer.prepend(aiTextBox)
         });
 }
