@@ -37,3 +37,8 @@ body {
 #chat-history{
     row-gap: 10px;
 }
+
+.btn-solid{
+    background-color: rgb(157, 230, 175) ;
+    
+}
