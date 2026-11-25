@@ -1,3 +1,4 @@
+const conversationHistory=[];
 const inputField = document.getElementById("txtfield");
 
 inputField.addEventListener("keydown", function (event) {
@@ -19,6 +20,11 @@ function chat() {
         userBox.classList.add("userbubble")
         userBox.textContent = usertext
         chatContainer.appendChild(userBox)
+
+        conversationHistory.push({
+            role : "user",
+            content : usertext
+        })
     }
 
 
@@ -29,7 +35,7 @@ function chat() {
 
     const raw = JSON.stringify({
         "model": "openai/gpt-oss-120b",
-        "input": usertext
+        "input": conversationHistory
     });
 
     const requestOptions = {
@@ -50,6 +56,12 @@ function chat() {
                 aiTextBox.classList.add("ai-bubble")
                 aiTextBox.innerHTML = marked.parse(aiText);
                 chatContainer.appendChild(aiTextBox)
+
+
+                conversationHistory.push({
+                    role:"assistant",
+                    content : aiText
+                })
             }
 
 

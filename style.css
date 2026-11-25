@@ -26,7 +26,7 @@ body {
 .ai-bubble {
     align-self: flex-start;
     max-width: 100%;
-    background-color: antiquewhite;
+    background-color: #f7cece;
     color: #0f172a;
     padding: 14px 18px;
     border-radius: 16px 16px 16px 4px;
@@ -39,6 +39,6 @@ body {
 }
 
 .btn-solid{
-    background-color: rgb(157, 230, 175) ;
+    background-color: #ddc0e7 ;
     
 }
