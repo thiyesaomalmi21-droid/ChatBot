@@ -1,4 +1,13 @@
 function chat() {
+
+    let usertext=document.getElementById("txtfield").value
+    let userBox=document.createElement("div")
+    userBox.classList.add("userbubble")
+    userBox.textContent=usertext
+
+    let chatContainer=document.getElementById("chat-history")
+    chatContainer.appendChild(userBox)
+
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Bearer ");
@@ -6,7 +15,7 @@ function chat() {
 
     const raw = JSON.stringify({
         "model": "openai/gpt-oss-120b",
-        "input": document.getElementById("txtfield").value
+        "input": usertext
     });
 
     const requestOptions = {
