@@ -31,7 +31,7 @@ function chat() {
             let aiText=result.output[1].content[0].text;
             let aiTextBox=document.createElement("div")
             aiTextBox.classList.add("ai-bubble")
-            aiTextBox.textContent=aiText;
+            aiTextBox.innerHTML=marked.parse(aiText);
             chatContainer.appendChild(aiTextBox)
 
             
